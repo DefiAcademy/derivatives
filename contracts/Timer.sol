@@ -1,17 +1,19 @@
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.7.3;
 
 contract Timer {
     uint256 private currentTime;
 
-    constructor() public {
-        currentTime = now;
+    constructor() {
+        currentTime = 0;
     }
 
-    function setCurrentTime(uint256 time) external {
-        currentTime = time;
+    function setTime(uint256 _newTime) public {
+        currentTime = _newTime;
     }
 
-    function getCurrentTime() public view returns (uint256) {
+    function getTime() public view returns (uint256) {
         return currentTime;
     }
 }

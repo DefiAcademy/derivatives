@@ -1,19 +1,22 @@
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.7.3;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v3.2.0-solc-0.7/contracts/token/ERC20/ERC20.sol";
 
 contract SyntheticToken is ERC20 {
-
-    constructor (string memory tokenName, string memory tokenSymbol) public ERC20(tokenName, tokenSymbol) {
-        _mint(msg.sender, 1000);
+    constructor(string memory _tokenName, string memory _tokenSymbol)
+        ERC20(_tokenName, _tokenSymbol)
+    {
+        _setupDecimals(0);
     }
-    
-    function mint(address recipient, uint256 value) external returns (bool) {
-        _mint(recipient, value);
+
+    function mint(address _recipient, uint256 _value) public returns (bool) {
+        _mint(_recipient, _value);
         return true;
     }
 
-    function burn(uint256 value) external {
-        _burn(msg.sender, value);
+    function burn(uint256 _value) public {
+        _burn(msg.sender, _value);
     }
 }
