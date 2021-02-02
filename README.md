@@ -1,4 +1,4 @@
-## Priceless synthetic contract  
+## Minimal Priceless synthetic contract  
 
 Source code used for the Derivatives course of Defi Academy
 
